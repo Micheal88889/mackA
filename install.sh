@@ -3204,8 +3204,8 @@ handleFirewall() {
 bbrInstall() {
 	echoContent red "\n=============================================================="
 	echoContent green "BBR、DD脚本用的[ylx2016]的成熟作品，地址[https://github.com/ylx2016/Linux-NetSpeed]，请熟知"
-	echoContent yellow "1.安装脚本【推荐原版BBR+FQ】"
-	echoContent yellow "2.回退主目录"
+	echoContent yellow "1.安装脚本【推荐原版BBR+FQ】default"
+	echoContent yellow "2.回退主目录backtomenu"
 	echoContent red "=============================================================="
 	read -r -p "请选择:" installBBRStatus
 	if [[ "${installBBRStatus}" == "1" ]]; then
@@ -3230,9 +3230,9 @@ checkLog() {
 	echoContent yellow "# 建议仅调试时打开access日志\n"
 
 	if [[ "${logStatus}" == "false" ]]; then
-		echoContent yellow "1.打开access日志"
+		echoContent yellow "1.打开access日志on"
 	else
-		echoContent yellow "1.关闭access日志"
+		echoContent yellow "1.关闭access日志off"
 	fi
 
 	echoContent yellow "2.监听access日志"
@@ -3416,13 +3416,13 @@ btTools() {
 	echoContent red "\n=============================================================="
 
 	if [[ -f ${configPath}09_routing.json ]] && grep -q bittorrent <${configPath}09_routing.json; then
-		echoContent yellow "当前状态:已禁用"
+		echoContent yellow "当前状态:已禁用active"
 	else
-		echoContent yellow "当前状态:未禁用"
+		echoContent yellow "当前状态:未禁用deactivate"
 	fi
 
-	echoContent yellow "1.禁用"
-	echoContent yellow "2.打开"
+	echoContent yellow "1.禁用stop"
+	echoContent yellow "2.打开open"
 	echoContent red "=============================================================="
 	read -r -p "请选择:" btStatus
 	if [[ "${btStatus}" == "1" ]]; then
@@ -3489,8 +3489,8 @@ blacklist() {
 
 	echoContent skyBlue "\n进度  $1/${totalProgress} : 域名黑名单"
 	echoContent red "\n=============================================================="
-	echoContent yellow "1.添加域名"
-	echoContent yellow "2.删除黑名单"
+	echoContent yellow "1.添加域名addblacklist"
+	echoContent yellow "2.删除黑名单remoteblacklisy"
 	echoContent red "=============================================================="
 	read -r -p "请选择:" blacklistStatus
 	if [[ "${blacklistStatus}" == "1" ]]; then
@@ -4098,14 +4098,14 @@ EOF
 # v2ray-core个性化安装
 customV2RayInstall() {
 	echoContent skyBlue "\n========================个性化安装============================"
-	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可"
+	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可selectprotocol"
 	echoContent yellow "0.VLESS+TLS/XTLS+TCP"
 	echoContent yellow "1.VLESS+TLS+WS[CDN]"
 	echoContent yellow "2.Trojan+TLS+gRPC[CDN]"
 	echoContent yellow "3.VMess+TLS+WS[CDN]"
 	echoContent yellow "4.Trojan"
 	echoContent yellow "5.VLESS+TLS+gRPC[CDN]"
-	read -r -p "请选择[多选]，[例如:123]:" selectCustomInstallType
+	read -r -p "请选择[多选]，[例如example:123]:" selectCustomInstallType
 	echoContent skyBlue "--------------------------------------------------------------"
 	if [[ -z ${selectCustomInstallType} ]]; then
 		selectCustomInstallType=0
@@ -4147,14 +4147,14 @@ customV2RayInstall() {
 # Xray-core个性化安装
 customXrayInstall() {
 	echoContent skyBlue "\n========================个性化安装============================"
-	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可"
+	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可selectprotocol"
 	echoContent yellow "0.VLESS+TLS/XTLS+TCP"
 	echoContent yellow "1.VLESS+TLS+WS[CDN]"
 	echoContent yellow "2.Trojan+TLS+gRPC[CDN]"
 	echoContent yellow "3.VMess+TLS+WS[CDN]"
 	echoContent yellow "4.Trojan"
 	echoContent yellow "5.VLESS+TLS+gRPC[CDN]"
-	read -r -p "请选择[多选]，[例如:123]:" selectCustomInstallType
+	read -r -p "请选择[多选]，[例如example:123]:" selectCustomInstallType
 	echoContent skyBlue "--------------------------------------------------------------"
 	if [[ -z ${selectCustomInstallType} ]]; then
 		echoContent red " ---> 不可为空"
@@ -4325,10 +4325,10 @@ manageAccount() {
 	echoContent skyBlue "\n功能 1/${totalProgress} : 账号管理"
 	echoContent red "\n=============================================================="
 	echoContent yellow "# 每次删除、添加账号后，需要重新查看订阅生成订阅\n"
-	echoContent yellow "1.查看账号"
-	echoContent yellow "2.查看订阅"
-	echoContent yellow "3.添加用户"
-	echoContent yellow "4.删除用户"
+	echoContent yellow "1.查看账号account"
+	echoContent yellow "2.查看订阅link"
+	echoContent yellow "3.添加用户adduser"
+	echoContent yellow "4.删除用户deleteuser"
 	echoContent red "=============================================================="
 	read -r -p "请输入:" manageAccountStatus
 	if [[ "${manageAccountStatus}" == "1" ]]; then
@@ -4427,37 +4427,37 @@ menu() {
 	showInstallStatus
 	echoContent red "\n=============================================================="
 	if [[ -n "${coreInstallType}" ]]; then
-		echoContent yellow "1.重新安装"
+		echoContent yellow "1.重新安装re-install"
 	else
-		echoContent yellow "1.安装"
+		echoContent yellow "1.安装install"
 	fi
 
-	echoContent yellow "2.任意组合安装"
+	echoContent yellow "2.任意组合安装customize"
 	if echo ${currentInstallProtocolType} | grep -q trojan; then
-		echoContent yellow "3.切换VLESS[XTLS]"
+		echoContent yellow "3.切换changetoVLESS[XTLS]"
 	elif echo ${currentInstallProtocolType} | grep -q 0; then
-		echoContent yellow "3.切换Trojan[XTLS]"
+		echoContent yellow "3.切换changetoTrojan[XTLS]"
 	fi
 
 	echoContent skyBlue "-------------------------工具管理-----------------------------"
-	echoContent yellow "4.账号管理"
-	echoContent yellow "5.更换伪装站"
-	echoContent yellow "6.更新证书"
-	echoContent yellow "7.更换CDN节点"
-	echoContent yellow "8.IPv6分流"
-	echoContent yellow "9.WARP分流"
-	echoContent yellow "10.流媒体工具"
-	echoContent yellow "11.添加新端口"
-	echoContent yellow "12.BT下载管理"
-	echoContent yellow "13.切换alpn"
-	echoContent yellow "14.域名黑名单"
+	echoContent yellow "4.账号管理Account"
+	echoContent yellow "5.更换伪装站changeDN"
+	echoContent yellow "6.更新证书RenewCert"
+	echoContent yellow "7.更换CDN节点ChangeCDN"
+	echoContent yellow "8.IPv6分流bypass"
+	echoContent yellow "9.WARP分流bypass"
+	echoContent yellow "10.流媒体工具Mediatool"
+	echoContent yellow "11.添加新端口addport"
+	echoContent yellow "12.BT下载管理manageBT"
+	echoContent yellow "13.切换alpnchange"
+	echoContent yellow "14.域名黑名单blacklist"
 	echoContent skyBlue "-------------------------版本管理-----------------------------"
-	echoContent yellow "15.core管理"
-	echoContent yellow "16.更新脚本"
-	echoContent yellow "17.安装BBR、DD脚本"
+	echoContent yellow "15.core管理manage"
+	echoContent yellow "16.更新脚本update"
+	echoContent yellow "17.安装BBR、DD脚本BBRinstall"
 	echoContent skyBlue "-------------------------脚本管理-----------------------------"
-	echoContent yellow "18.查看日志"
-	echoContent yellow "19.卸载脚本"
+	echoContent yellow "18.查看日志log"
+	echoContent yellow "19.卸载脚本uninstall"
 	echoContent red "=============================================================="
 	mkdirTools
 	aliasInstall
