@@ -750,12 +750,12 @@ initTLSNginxConfig() {
 			echoContent yellow "\n ---> 域名: ${domain}"
 		else
 			echo
-			echoContent yellow "请输入要配置的域名 例: www.v2ray-agent.com --->"
+			echoContent yellow "请输入要配置的域名 insert domain name例: www.v2ray-agent.com --->"
 			read -r -p "域名:" domain
 		fi
 	else
 		echo
-		echoContent yellow "请输入要配置的域名 例: www.v2ray-agent.com --->"
+		echoContent yellow "请输入要配置的域名 insert domain name例: www.v2ray-agent.com --->"
 		read -r -p "域名:" domain
 	fi
 
@@ -1054,7 +1054,7 @@ randomPathFunction() {
 
 	if [[ -n "${currentPath}" ]]; then
 		echo
-		read -r -p "读取到上次安装记录，是否使用上次安装时的path路径 ？[y/n]:" historyPathStatus
+		read -r -p "读取到上次安装记录，是否使用上次安装时的path路径path ？[y/n]:" historyPathStatus
 		echo
 	fi
 
@@ -1062,7 +1062,7 @@ randomPathFunction() {
 		customPath=${currentPath}
 		echoContent green " ---> 使用成功\n"
 	else
-		echoContent yellow "请输入自定义路径[例: alone]，不需要斜杠，[回车]随机路径"
+		echoContent yellow "请输入自定义路径path name[例: alone]，不需要斜杠，[回车]enter随机路径"
 		read -r -p '路径:' customPath
 
 		if [[ -z "${customPath}" ]]; then
@@ -2938,8 +2938,8 @@ updateV2RayCDN() {
 manageUser() {
 	echoContent skyBlue "\n进度 $1/${totalProgress} : 多用户管理"
 	echoContent skyBlue "-----------------------------------------------------"
-	echoContent yellow "1.添加用户"
-	echoContent yellow "2.删除用户"
+	echoContent yellow "1.adduser添加用户"
+	echoContent yellow "2.deleteuser删除用户"
 	echoContent skyBlue "-----------------------------------------------------"
 	read -r -p "请选择:" manageUserType
 	if [[ "${manageUserType}" == "1" ]]; then
@@ -2956,7 +2956,7 @@ customUUID() {
 	#	read -r -p "是否自定义UUID ？[y/n]:" customUUIDStatus
 	#	echo
 	#	if [[ "${customUUIDStatus}" == "y" ]]; then
-	read -r -p "请输入合法的UUID，[回车]随机UUID:" currentCustomUUID
+	read -r -p "请输入合法的UUID，[回车]enter随机UUID:" currentCustomUUID
 	echo
 	if [[ -z "${currentCustomUUID}" ]]; then
 		# echoContent red " ---> UUID不可为空"
@@ -2980,10 +2980,10 @@ customUUID() {
 
 # 自定义email
 customUserEmail() {
-	#	read -r -p "是否自定义email ？[y/n]:" customEmailStatus
+	#	read -r -p "是否自定义accountemail ？[y/n]:" customEmailStatus
 	#	echo
 	#	if [[ "${customEmailStatus}" == "y" ]]; then
-	read -r -p "请输入合法的email，[回车]随机email:" currentCustomEmail
+	read -r -p "请输入合法的email，[回车enter]随机email:" currentCustomEmail
 	echo
 	if [[ -z "${currentCustomEmail}" ]]; then
 		currentCustomEmail="${currentHost}_${currentCustomUUID}"
