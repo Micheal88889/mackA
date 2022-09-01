@@ -111,7 +111,7 @@ initVar() {
 	# 核心支持的cpu版本
 	xrayCoreCPUVendor=""
 	v2rayCoreCPUVendor=""
-	# 域名
+	# 域名domainname
 	domain=
 
 	# CDN节点的address
@@ -963,7 +963,7 @@ checkIP() {
 			echoContent yellow " ---> 检测返回值异常，建议手动卸载nginx后重新执行脚本"
 		fi
 		echoContent red " ---> 请检查防火墙规则是否开放443、80\n"
-		read -r -p "是否通过脚本修改防火墙规则开放443、80端口？[y/n]:" allPortFirewallStatus
+		read -r -p "是否通过脚本修改防火墙规则开放443、80端口allow port443,80？[y/n]:" allPortFirewallStatus
 		if [[ ${allPortFirewallStatus} == "y" ]]; then
 			allowPort
 			handleNginx start
