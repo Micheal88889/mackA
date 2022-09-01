@@ -4423,7 +4423,7 @@ menu() {
 	echoContent green "作者:mack-a"
 	echoContent green "当前版本:v2.5.56"
 	echoContent green "Github:https://github.com/mack-a/v2ray-agent"
-	echoContent green "menu tpye:vasma\c"
+	echoContent green "TYPE: vasma\c"
 	showInstallStatus
 	echoContent red "\n=============================================================="
 	if [[ -n "${coreInstallType}" ]]; then
@@ -4444,8 +4444,8 @@ menu() {
 	echoContent yellow "5.更换伪装站changeDN"
 	echoContent yellow "6.更新证书RenewCert"
 	echoContent yellow "7.更换CDN节点ChangeCDN"
-	echoContent yellow "8.IPv6分流bypass"
-	echoContent yellow "9.WARP分流bypass"
+	echoContent yellow "8.IPv6分流bypassIPV6"
+	echoContent yellow "9.WARP分流bypassWARP"
 	echoContent yellow "10.流媒体工具Mediatool"
 	echoContent yellow "11.添加新端口addport"
 	echoContent yellow "12.BT下载管理manageBT"
