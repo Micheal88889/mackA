@@ -1285,7 +1285,7 @@ v2rayVersionManageMenu() {
 	echoContent yellow "4.打开v2ray-core"
 	echoContent yellow "5.重启v2ray-core"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectV2RayType
+	read -r -p "请选择select:" selectV2RayType
 	if [[ "${selectV2RayType}" == "1" ]]; then
 		updateV2Ray
 	elif [[ "${selectV2RayType}" == "2" ]]; then
@@ -1328,7 +1328,7 @@ xrayVersionManageMenu() {
 	echoContent yellow "4.打开Xray-core"
 	echoContent yellow "5.重启Xray-core"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectXrayType
+	read -r -p "请选择select:" selectXrayType
 	if [[ "${selectXrayType}" == "1" ]]; then
 		updateXray
 	elif [[ "${selectXrayType}" == "2" ]]; then
@@ -2030,7 +2030,7 @@ initXrayFrontingConfig() {
 
 	echoContent yellow "1.切换至${xtlsType}"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectType
+	read -r -p "请选择select:" selectType
 	if [[ "${selectType}" == "1" ]]; then
 
 		if [[ "${xtlsType}" == "Trojan" ]]; then
@@ -2458,7 +2458,7 @@ customCDNIP() {
 	echoContent yellow " 2.联通:www.cloudflare.com"
 	echoContent yellow " 3.电信:www.digitalocean.com"
 	echoContent skyBlue "----------------------------"
-	read -r -p "请选择[回车不使用]:" selectCloudflareType
+	read -r -p "请选择select[回车不使用]enter:" selectCloudflareType
 	case ${selectCloudflareType} in
 	1)
 		add="104.16.123.96"
@@ -2763,7 +2763,7 @@ updateNginxBlog() {
 	echoContent yellow "8.个人博客02"
 	echoContent yellow "9.404自动跳转baidu"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectInstallNginxBlogType
+	read -r -p "请选择select:" selectInstallNginxBlogType
 
 	if [[ "${selectInstallNginxBlogType}" =~ ^[1-9]$ ]]; then
 		#		rm -rf /usr/share/nginx/html
@@ -2797,7 +2797,7 @@ addCorePort() {
 	echoContent yellow "1.添加端口"
 	echoContent yellow "2.删除端口"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectNewPortType
+	read -r -p "请选择select:" selectNewPortType
 	if [[ "${selectNewPortType}" == "1" ]]; then
 		read -r -p "请输入端口号:" newPort
 		if [[ -n "${newPort}" ]]; then
@@ -2902,7 +2902,7 @@ updateV2RayCDN() {
 		echoContent yellow "3.CNAME hostmonit.com"
 		echoContent yellow "4.手动输入"
 		echoContent red "=============================================================="
-		read -r -p "请选择:" selectCDNType
+		read -r -p "请选择select:" selectCDNType
 		case ${selectCDNType} in
 		1)
 			setDomain="www.digitalocean.com"
@@ -2941,7 +2941,7 @@ manageUser() {
 	echoContent yellow "1.adduser添加用户"
 	echoContent yellow "2.deleteuser删除用户"
 	echoContent skyBlue "-----------------------------------------------------"
-	read -r -p "请选择:" manageUserType
+	read -r -p "请选择select:" manageUserType
 	if [[ "${manageUserType}" == "1" ]]; then
 		addUser
 	elif [[ "${manageUserType}" == "2" ]]; then
@@ -3207,7 +3207,7 @@ bbrInstall() {
 	echoContent yellow "1.安装脚本【推荐原版BBR+FQ】default"
 	echoContent yellow "2.回退主目录backtomenu"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" installBBRStatus
+	read -r -p "请选择select:" installBBRStatus
 	if [[ "${installBBRStatus}" == "1" ]]; then
 		wget -N --no-check-certificate "https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 	else
@@ -3242,7 +3242,7 @@ checkLog() {
 	echoContent yellow "6.清空日志"
 	echoContent red "=============================================================="
 
-	read -r -p "请选择:" selectAccessLogType
+	read -r -p "请选择select:" selectAccessLogType
 	local configPathLog=${configPath//conf\//}
 
 	case ${selectAccessLogType} in
@@ -3424,7 +3424,7 @@ btTools() {
 	echoContent yellow "1.禁用stop"
 	echoContent yellow "2.打开open"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" btStatus
+	read -r -p "请选择select:" btStatus
 	if [[ "${btStatus}" == "1" ]]; then
 
 		if [[ -f "${configPath}09_routing.json" ]]; then
@@ -3636,7 +3636,7 @@ warpRouting() {
 	echoContent yellow "1.添加域名"
 	echoContent yellow "2.卸载WARP分流"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" warpStatus
+	read -r -p "请选择select:" warpStatus
 	if [[ "${warpStatus}" == "1" ]]; then
 		echoContent red "=============================================================="
 		echoContent yellow "# 注意事项\n"
@@ -3990,7 +3990,7 @@ dnsUnlockNetflix() {
 	echoContent red "\n=============================================================="
 	echoContent yellow "1.添加"
 	echoContent yellow "2.卸载"
-	read -r -p "请选择:" selectType
+	read -r -p "请选择select:" selectType
 
 	case ${selectType} in
 	1)
@@ -4105,7 +4105,7 @@ customV2RayInstall() {
 	echoContent yellow "3.VMess+TLS+WS[CDN]"
 	echoContent yellow "4.Trojan"
 	echoContent yellow "5.VLESS+TLS+gRPC[CDN]"
-	read -r -p "请选择[多选]，[例如example:123]:" selectCustomInstallType
+	read -r -p "请选择select[多选]，[例如example:123]:" selectCustomInstallType
 	echoContent skyBlue "--------------------------------------------------------------"
 	if [[ -z ${selectCustomInstallType} ]]; then
 		selectCustomInstallType=0
@@ -4154,7 +4154,7 @@ customXrayInstall() {
 	echoContent yellow "3.VMess+TLS+WS[CDN]"
 	echoContent yellow "4.Trojan"
 	echoContent yellow "5.VLESS+TLS+gRPC[CDN]"
-	read -r -p "请选择[多选]，[例如example:123]:" selectCustomInstallType
+	read -r -p "请选择select[多选]，[例如example:123]:" selectCustomInstallType
 	echoContent skyBlue "--------------------------------------------------------------"
 	if [[ -z ${selectCustomInstallType} ]]; then
 		echoContent red " ---> 不可为空"
@@ -4201,7 +4201,7 @@ selectCoreInstall() {
 	echoContent yellow "1.Xray-core"
 	echoContent yellow "2.v2ray-core"
 	echoContent red "=============================================================="
-	read -r -p "请选择:" selectCoreType
+	read -r -p "请选择select:" selectCoreType
 	case ${selectCoreType} in
 	1)
 		if [[ "${selectInstallType}" == "2" ]]; then
@@ -4399,7 +4399,7 @@ switchAlpn() {
 
 	echoContent red "=============================================================="
 
-	read -r -p "请选择:" selectSwitchAlpnType
+	read -r -p "请选择select:" selectSwitchAlpnType
 	if [[ "${selectSwitchAlpnType}" == "1" && "${currentAlpn}" == "http/1.1" ]]; then
 
 		local frontingTypeJSON
