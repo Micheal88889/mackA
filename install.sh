@@ -2794,8 +2794,8 @@ addCorePort() {
 	echoContent yellow "不允许有特殊字符，注意逗号的格式"
 	echoContent yellow "录入示例:2053,2083,2087\n"
 
-	echoContent yellow "1.添加端口"
-	echoContent yellow "2.删除端口"
+	echoContent yellow "1.添加端口add port"
+	echoContent yellow "2.删除端口delete port"
 	echoContent red "=============================================================="
 	read -r -p "请选择select:" selectNewPortType
 	if [[ "${selectNewPortType}" == "1" ]]; then
@@ -2983,7 +2983,7 @@ customUserEmail() {
 	#	read -r -p "是否自定义accountemail ？[y/n]:" customEmailStatus
 	#	echo
 	#	if [[ "${customEmailStatus}" == "y" ]]; then
-	read -r -p "请输入合法的email，[回车enter]随机email:" currentCustomEmail
+	read -r -p "请输入合法的insert usermane，[回车enter]随机email:" currentCustomEmail
 	echo
 	if [[ -z "${currentCustomEmail}" ]]; then
 		currentCustomEmail="${currentHost}_${currentCustomUUID}"
@@ -3008,7 +3008,7 @@ customUserEmail() {
 addUser() {
 
 	echoContent yellow "添加新用户后，需要重新查看订阅"
-	read -r -p "请输入要添加的用户数量:" userNum
+	read -r -p "请输入要添加的用户数量create number of user:" userNum
 	echo
 	if [[ -z ${userNum} || ${userNum} -le 0 ]]; then
 		echoContent red " ---> 输入有误，请重新输入"
@@ -3116,7 +3116,7 @@ removeUser() {
 
 	if echo ${currentInstallProtocolType} | grep -q 0 || echo ${currentInstallProtocolType} | grep -q trojan; then
 		jq -r -c .inbounds[0].settings.clients[].email ${configPath}${frontingType}.json | awk '{print NR""":"$0}'
-		read -r -p "请选择要删除的用户编号[仅支持单个删除]:" delUserIndex
+		read -r -p "请选择要删除的用户编号delete user[仅支持单个删除]:" delUserIndex
 		if [[ $(jq -r '.inbounds[0].settings.clients|length' ${configPath}${frontingType}.json) -lt ${delUserIndex} ]]; then
 			echoContent red " ---> 选择错误"
 		else
@@ -3204,7 +3204,7 @@ handleFirewall() {
 bbrInstall() {
 	echoContent red "\n=============================================================="
 	echoContent green "BBR、DD脚本用的[ylx2016]的成熟作品，地址[https://github.com/ylx2016/Linux-NetSpeed]，请熟知"
-	echoContent yellow "1.安装脚本【推荐原版BBR+FQ】default"
+	echoContent yellow "1.安装脚本【推荐原版BBR+FQ】default bbr+FQ"
 	echoContent yellow "2.回退主目录backtomenu"
 	echoContent red "=============================================================="
 	read -r -p "请选择select:" installBBRStatus
@@ -4098,7 +4098,7 @@ EOF
 # v2ray-core个性化安装
 customV2RayInstall() {
 	echoContent skyBlue "\n========================个性化安装============================"
-	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可selectprotocol"
+	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可select protocol"
 	echoContent yellow "0.VLESS+TLS/XTLS+TCP"
 	echoContent yellow "1.VLESS+TLS+WS[CDN]"
 	echoContent yellow "2.Trojan+TLS+gRPC[CDN]"
@@ -4147,7 +4147,7 @@ customV2RayInstall() {
 # Xray-core个性化安装
 customXrayInstall() {
 	echoContent skyBlue "\n========================个性化安装============================"
-	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可selectprotocol"
+	echoContent yellow "VLESS前置，默认安装0，如果只需要安装0，则只选择0即可select protocol"
 	echoContent yellow "0.VLESS+TLS/XTLS+TCP"
 	echoContent yellow "1.VLESS+TLS+WS[CDN]"
 	echoContent yellow "2.Trojan+TLS+gRPC[CDN]"
@@ -4325,10 +4325,10 @@ manageAccount() {
 	echoContent skyBlue "\n功能 1/${totalProgress} : 账号管理"
 	echoContent red "\n=============================================================="
 	echoContent yellow "# 每次删除、添加账号后，需要重新查看订阅生成订阅\n"
-	echoContent yellow "1.查看账号account"
-	echoContent yellow "2.查看订阅link"
-	echoContent yellow "3.添加用户adduser"
-	echoContent yellow "4.删除用户deleteuser"
+	echoContent yellow "1.查看账号Account"
+	echoContent yellow "2.查看订阅subslink"
+	echoContent yellow "3.添加用户Add user"
+	echoContent yellow "4.删除用户Delete user"
 	echoContent red "=============================================================="
 	read -r -p "请输入:" manageAccountStatus
 	if [[ "${manageAccountStatus}" == "1" ]]; then
@@ -4348,8 +4348,8 @@ manageAccount() {
 subscribe() {
 	if [[ -n "${configPath}" ]]; then
 		echoContent skyBlue "-------------------------备注---------------------------------"
-		echoContent yellow "# 查看订阅时会重新生成订阅"
-		echoContent yellow "# 每次添加、删除账号需要重新查看订阅"
+		echoContent yellow "# 查看订阅时会重新生成订阅check subsink"
+		echoContent yellow "# 每次添加、删除账号需要重新查看订阅add and delete"
 		rm -rf /etc/v2ray-agent/subscribe/*
 		rm -rf /etc/v2ray-agent/subscribe_tmp/*
 		showAccounts >/dev/null
@@ -4441,23 +4441,23 @@ menu() {
 
 	echoContent skyBlue "-------------------------工具管理MainManager-----------------------------"
 	echoContent yellow "4.账号管理Account"
-	echoContent yellow "5.更换伪装站changeDN"
-	echoContent yellow "6.更新证书RenewCert"
-	echoContent yellow "7.更换CDN节点ChangeCDN"
+	echoContent yellow "5.更换伪装站Change DN"
+	echoContent yellow "6.更新证书Renew Cert"
+	echoContent yellow "7.更换CDN节点Change CDN"
 	echoContent yellow "8.IPv6分流bypassIPV6"
 	echoContent yellow "9.WARP分流bypassWARP"
-	echoContent yellow "10.流媒体工具Mediatool"
-	echoContent yellow "11.添加新端口addport"
-	echoContent yellow "12.BT下载管理manageBT"
+	echoContent yellow "10.流媒体工具Media tool"
+	echoContent yellow "11.添加新端口Add port"
+	echoContent yellow "12.BT下载管理manage BT"
 	echoContent yellow "13.切换alpnchange"
-	echoContent yellow "14.域名黑名单blacklist"
+	echoContent yellow "14.域名黑名单Blacklist"
 	echoContent skyBlue "-------------------------版本管理CoreManager-----------------------------"
-	echoContent yellow "15.core管理manage"
-	echoContent yellow "16.更新脚本update"
+	echoContent yellow "15.core管理Manage"
+	echoContent yellow "16.更新脚本Update"
 	echoContent yellow "17.安装BBR、DD脚本BBRinstall"
 	echoContent skyBlue "-------------------------脚本管理ScriptManager-----------------------------"
-	echoContent yellow "18.查看日志log"
-	echoContent yellow "19.卸载脚本uninstall"
+	echoContent yellow "18.查看日志Log"
+	echoContent yellow "19.卸载脚本Uninstall"
 	echoContent red "=============================================================="
 	mkdirTools
 	aliasInstall
