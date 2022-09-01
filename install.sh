@@ -4423,7 +4423,7 @@ menu() {
 	echoContent green "作者:mack-a"
 	echoContent green "当前版本:v2.5.56"
 	echoContent green "Github:https://github.com/mack-a/v2ray-agent"
-	echoContent green "描述:八合一共存脚本\c"
+	echoContent green "menu tpye:vasma\c"
 	showInstallStatus
 	echoContent red "\n=============================================================="
 	if [[ -n "${coreInstallType}" ]]; then
@@ -4439,7 +4439,7 @@ menu() {
 		echoContent yellow "3.切换changetoTrojan[XTLS]"
 	fi
 
-	echoContent skyBlue "-------------------------工具管理-----------------------------"
+	echoContent skyBlue "-------------------------工具管理MainManager-----------------------------"
 	echoContent yellow "4.账号管理Account"
 	echoContent yellow "5.更换伪装站changeDN"
 	echoContent yellow "6.更新证书RenewCert"
@@ -4451,17 +4451,17 @@ menu() {
 	echoContent yellow "12.BT下载管理manageBT"
 	echoContent yellow "13.切换alpnchange"
 	echoContent yellow "14.域名黑名单blacklist"
-	echoContent skyBlue "-------------------------版本管理-----------------------------"
+	echoContent skyBlue "-------------------------版本管理CoreManager-----------------------------"
 	echoContent yellow "15.core管理manage"
 	echoContent yellow "16.更新脚本update"
 	echoContent yellow "17.安装BBR、DD脚本BBRinstall"
-	echoContent skyBlue "-------------------------脚本管理-----------------------------"
+	echoContent skyBlue "-------------------------脚本管理ScriptManager-----------------------------"
 	echoContent yellow "18.查看日志log"
 	echoContent yellow "19.卸载脚本uninstall"
 	echoContent red "=============================================================="
 	mkdirTools
 	aliasInstall
-	read -r -p "请选择:" selectInstallType
+	read -r -p "请选择select:" selectInstallType
 	case ${selectInstallType} in
 	1)
 		selectCoreInstall
